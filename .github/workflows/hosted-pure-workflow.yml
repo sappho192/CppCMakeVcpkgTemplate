@@ -108,6 +108,12 @@ jobs:
         run: |
           cmake --build --preset ninja-vcpkg-release
 
+      - name: Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Artifact(${{ matrix.os }})
+          path: builds/ninja-multi-vcpkg/Release/
+
       # Test the whole project with CTest, again Release configuration only.
       - name: Test (Release configuration)
         run: |
