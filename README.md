@@ -101,7 +101,8 @@ Then choose the target:
 ## 6.1 How to build
 
 - Open the command palette(`ctrl+shift+p`)
-- Run `CMake: Build`
+- Run `CMake: Build` to build all targets
+- Run `CMake: Build target` to build the target currently selected
 
 ## 6.2 How to debug
 
