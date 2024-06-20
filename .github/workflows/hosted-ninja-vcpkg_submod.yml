@@ -16,6 +16,9 @@
 name: hosted-ninja-vcpkg_submod-autocache
 on:
   push: 
+    # Uncomment the following line if you want to run the workflow only when a tag is pushed.
+    # tags:
+    #     - '*'
     pull_request:
     branches: 
     - v11
