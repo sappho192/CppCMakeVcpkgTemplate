@@ -68,3 +68,9 @@ jobs:
           configurePreset: 'ninja-multi-vcpkg'
           buildPreset: 'ninja-vcpkg-release'
           testPreset: 'test-release'
+
+      - name: Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Artifact(${{ matrix.os }})
+          path: builds/ninja-multi-vcpkg/Release/
