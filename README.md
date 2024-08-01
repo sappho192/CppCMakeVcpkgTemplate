@@ -62,7 +62,7 @@ If you have already installed Visual Studio 2022, you can skip this part.
 
 - Execute `Developer PowerShell for Visual Studio 2022`
 - Go to the project directory (For example, run `cd "C:/REPO/POCOExercise"`)
-- Run `vscode .`
+- Run `code .`
 
 Now you can build and run the project! Keep in mind you should always open the project like this way.
 
