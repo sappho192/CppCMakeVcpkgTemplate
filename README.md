@@ -74,6 +74,8 @@ Now you can build and run the project! Keep in mind you should always open the p
 [cmake] CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage
 ```
 
+In this situation, you'll need to **remove** the `builds` directory before running `code .` to clear the build cache.
+
 ## 5.2 Setting up VSCode Extensions
 
 Go to extensions tab and install following extensions:
