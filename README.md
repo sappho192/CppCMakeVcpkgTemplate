@@ -11,7 +11,8 @@
 - [5. Setup Guide](#5-setup-guide)
   - [5.1 Windows-specific setup guide](#51-windows-specific-setup-guide)
     - [5.1.1 Install Build Tools for Visual Studio 2022](#511-install-build-tools-for-visual-studio-2022)
-    - [5.1.2 Open VSCode from Developer terminal for Visual Studio](#512-open-vscode-from-developer-terminal-for-visual-studio)
+    - [5.1.2 Install CMake \& Ninja](#512-install-cmake--ninja)
+    - [5.1.3 Open VSCode from Developer terminal for Visual Studio](#513-open-vscode-from-developer-terminal-for-visual-studio)
   - [5.2 Setting up VSCode Extensions](#52-setting-up-vscode-extensions)
 - [6. Build, Debug, and Test](#6-build-debug-and-test)
   - [6.1 How to build](#61-how-to-build)
@@ -58,15 +59,26 @@ If you have already installed Visual Studio 2022, you can skip this part.
 - In `All Downloads`, open up `Tools for Visual Studio` and download `Build Tools for Visual Studio 2022`
 - Install the downloaded file
 
-### 5.1.2 Open VSCode from Developer terminal for Visual Studio
+### 5.1.2 Install CMake & Ninja
 
-- Execute `Developer PowerShell for Visual Studio 2022`
+- Install CMake (with adding PATH) [[Download](https://cmake.org/download/)]
+- Install Ninja build tool using winget:
+  - `winget install Ninja-build.Ninja`
+
+### 5.1.3 Open VSCode from Developer terminal for Visual Studio
+
+- [**IMPORTANT**] If you are to build x86 binary,
+  - Execute `Developer PowerShell for Visual Studio 2022`
+- [**IMPORTANT**] If you are to build x64 binary,
+  - Execute `x64 Native Tools Command Prompt for VS 2022`
 - Go to the project directory (For example, run `cd "C:/REPO/POCOExercise"`)
 - Run `code .`
 
+Executing x64 prompt or not is very important in this project since Ninja multi-build system doesn't accept `CMAKE_GENERATOR_PLATFORM`.  
+The architecture of build result will only be automatically decided by OS and the compiler (for Windows, it will be `cl.exe`).  
 Now you can build and run the project! Keep in mind you should always open the project like this way.
 
-(If you clone this repository and open with plain VSCode, you will see following error after all:
+(If you open this repository with plain VSCode, you will see following error after all:
 
 ```
 [cmake] CMake Error: CMake was unable to find a build program corresponding to "Ninja Multi-Config".  CMAKE_MAKE_PROGRAM is not set.  You probably need to select a different build tool.
@@ -74,7 +86,7 @@ Now you can build and run the project! Keep in mind you should always open the p
 [cmake] CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage
 ```
 
-In this situation, you'll need to **remove** the `builds` directory before running `code .` to clear the build cache.
+**In this situation, you'll need to remove the `builds` directory before running `code .` to clear the build cache.**
 
 ## 5.2 Setting up VSCode Extensions
 
