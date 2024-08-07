@@ -28,6 +28,7 @@
 
 # Executables
 *.exe
+!vswhere.exe
 *.out
 *.app
 

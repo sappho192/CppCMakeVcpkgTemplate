@@ -67,18 +67,19 @@ If you have already installed Visual Studio 2022, you can skip this part.
 
 ### 5.1.3 Open VSCode from Developer terminal for Visual Studio
 
+> [!IMPORTANT]  
+> To properly build the project, you should **always** run VSCode from Developer terminal for Visual Studio.  
+> Follow the guide below firmly.  
+
 - [**IMPORTANT**] If you are to build x86 binary,
-  - Execute `Developer PowerShell for Visual Studio 2022`
+  - Run `launch_devtools_x86.bat`
 - [**IMPORTANT**] If you are to build x64 binary,
-  - Execute `x64 Native Tools Command Prompt for VS 2022`
-- Go to the project directory (For example, run `cd "C:/REPO/POCOExercise"`)
+  - Run `launch_devtools_x64.bat`
 - Run `code .`
 
-Executing x64 prompt or not is very important in this project since Ninja multi-build system doesn't accept `CMAKE_GENERATOR_PLATFORM`.  
-The architecture of build result will only be automatically decided by OS and the compiler (for Windows, it will be `cl.exe`).  
 Now you can build and run the project! Keep in mind you should always open the project like this way.
 
-(If you open this repository with plain VSCode, you will see following error after all:
+(If you clone this repository and open with plain VSCode, you will see following error after all:
 
 ```
 [cmake] CMake Error: CMake was unable to find a build program corresponding to "Ninja Multi-Config".  CMAKE_MAKE_PROGRAM is not set.  You probably need to select a different build tool.
@@ -86,7 +87,7 @@ Now you can build and run the project! Keep in mind you should always open the p
 [cmake] CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage
 ```
 
-**In this situation, you'll need to remove the `builds` directory before running `code .` to clear the build cache.**
+In this case, you **should remove the `builds` directory** and run the VSCode by launching the `launch_devtools_x**.bat` mentioned above.
 
 ## 5.2 Setting up VSCode Extensions
 
